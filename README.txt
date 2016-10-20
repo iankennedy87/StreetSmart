@@ -2,7 +2,7 @@
 Welcome to Street Smart!
 ------------------------
 
-The inspiration for this app was my brother's distribution business, which uses  CRM (customer relationship management) software to track his customers. I wanted to build and app to allow delivery drivers to quickly see a Google Street View of the customer that they're servicing. To do so, I found a free CRM (Insightly) and integrated it with Google Street View. The result is Street Smart.
+The inspiration for this app was my brother's distribution business, which uses CRM (customer relationship management) software to track his customers. I wanted to build and app to allow delivery drivers to quickly see a Google Street View of the customer that they're servicing. To do so, I found a free CRM (Insightly) and integrated it with Google Street View. The result is Street Smart.
 
 -----
 Note
@@ -18,7 +18,7 @@ This account is purely for app development purposes, so feel free to manipulate 
 ------------------------------
 Building and Compiling the App
 ------------------------------
-Street Smart uses Cocoa Pods to manages Google's dependencies. The dependencies are included in the GitHub file, so you should not need to reinstall the Pods. 
+Street Smart uses Cocoa Pods to manages Google's dependencies. Therefore, use the insightly.xcworkspace file to open the project. If you use the insightly.xcodeproj file, the project will not compile.  The dependencies are included in the GitHub file, so you should not need to reinstall the Pods. However, some of the Pods are very large, so it may take a few minutes to download. Finally, I deleted many of the image out of the Google dependencies to reduce the file sizes. This resulted in a few hundred warnings in XCode about missing files, but the app still compiles and runs as it should. 
 
 The project was created to run only on iOS 10.0. It will not compile on earlier versions of iOS. According to Google, there is an issue with Google Sign In with the latest iOS 10 simulators in Xcode 8. The issue does not affect real devices, but to allow Street Smart to run correctly on the simulator, I had to enable Keychain Sharing in the Capabilities section of the app on Xcode and add the project bundle identifier to Keychain Groups. 
 
