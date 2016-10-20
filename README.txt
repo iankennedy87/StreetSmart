@@ -21,7 +21,7 @@ If you don’t want to modify Insightly data or visit the website, the API Key f
 
 917b59bc-efc4-49bc-a626-dc57f65ee7d6:
 
-
+You can enter this key on the “Set API Key” page of the app, and the app will run as expected.
 
 ------------------------------
 Building and Compiling the App
