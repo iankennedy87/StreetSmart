@@ -48,7 +48,7 @@ class OrgTableViewController : UITableViewController, NSFetchedResultsController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let orgs = fetchedResultsController.fetchedObjects as! [Organisation]
-        InsightlyClient.sharedInstance().downloadInsightlyImages(orgs: orgs, completionHandler: nil)
+        InsightlyClient.sharedInstance.downloadInsightlyImages(orgs: orgs, completionHandler: nil)
     }
     
    
@@ -74,13 +74,13 @@ class OrgTableViewController : UITableViewController, NSFetchedResultsController
    
     //Deletes all organisation from CoreData and downloads again from website
     func refresh() {
-        InsightlyClient.sharedInstance().downloadInsightlyCustomers(viewController: self, fetchedResultsController: fetchedResultsController, uiUpdates: toggleActivityIndicator, completionHandler: {
+        InsightlyClient.sharedInstance.downloadInsightlyCustomers(viewController: self, fetchedResultsController: fetchedResultsController, uiUpdates: toggleActivityIndicator, completionHandler: {
             
             self.del.saveContext()
             
             DispatchQueue.main.async {
                 let orgs = self.fetchedResultsController.fetchedObjects as! [Organisation]
-                InsightlyClient.sharedInstance().downloadInsightlyImages(orgs: orgs, completionHandler: nil)
+                InsightlyClient.sharedInstance.downloadInsightlyImages(orgs: orgs, completionHandler: nil)
             }
         })
     }

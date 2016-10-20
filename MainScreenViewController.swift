@@ -67,7 +67,7 @@ class MainScreenViewController: UIViewController {
             //If data hasn't been downloaded with current API key, does so now
         } else if !UserDefaults.standard.bool(forKey: UserDefaultKeys.customersDownloaded) {
             
-            InsightlyClient.sharedInstance().downloadInsightlyCustomers(viewController: self, fetchedResultsController: fetchedResultsController, uiUpdates: toggleButtons, completionHandler: {
+            InsightlyClient.sharedInstance.downloadInsightlyCustomers(viewController: self, fetchedResultsController: fetchedResultsController, uiUpdates: toggleButtons, completionHandler: {
                 
                 UserDefaults.standard.set(true, forKey: UserDefaultKeys.customersDownloaded)
                 self.del.saveContext()

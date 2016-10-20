@@ -15,6 +15,7 @@ class InsightlyClient : NSObject {
     let session = URLSession.shared
     let del = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    static let sharedInstance = InsightlyClient()
     
     typealias getJSONCompletionHandler = (_ result: [[String:AnyObject]]?, _ alert: UIAlertController?) -> Void
     
@@ -91,7 +92,7 @@ class InsightlyClient : NSObject {
         
         let params = ["brief":"false", "count_total": "false"]
         
-        InsightlyClient.sharedInstance().insightlyGetJSONRequest(endpoint: API.OrganisationEndpoint, params: params as [String: AnyObject]) { (result, alert) in
+        InsightlyClient.sharedInstance.insightlyGetJSONRequest(endpoint: API.OrganisationEndpoint, params: params as [String: AnyObject]) { (result, alert) in
             
             //Display an alert if an error occurs
             guard (alert == nil) else {
@@ -108,7 +109,7 @@ class InsightlyClient : NSObject {
                 let addresses = org[ResponseKeys.addresses] as! [[String:AnyObject]]
                 let addressDict = addresses[0]
                 
-                let address = InsightlyClient.sharedInstance().convertInsightlyAddressToString(addressDict)
+                let address = InsightlyClient.sharedInstance.convertInsightlyAddressToString(addressDict)
                 let _ = Organisation(name: name, address: address.addressString, addressByLine: address.addressByLine, imageUrl: url, context: self.context)
             }
             
@@ -156,12 +157,12 @@ class InsightlyClient : NSObject {
         }
     }
     
-    class func sharedInstance() -> InsightlyClient {
-        struct Singleton {
-            static var sharedInstance = InsightlyClient()
-        }
-        return Singleton.sharedInstance
-    }
+//    class func sharedInstance() -> InsightlyClient {
+//        struct Singleton {
+//            static var sharedInstance = InsightlyClient()
+//        }
+//        return Singleton.sharedInstance
+//    }
     
     //Returns a two element tuple: first, and address string for geocoding and an address with elements separated by line for display
     func convertInsightlyAddressToString(_ insightlyAddress: [String: AnyObject]) -> (addressString: String, addressByLine: String) {
