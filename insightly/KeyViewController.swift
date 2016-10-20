@@ -49,7 +49,6 @@ class KeyViewController : UIViewController, UITextFieldDelegate {
         oldKey = UserDefaults.standard.value(forKey: UserDefaultKeys.apiKey) as! String?
         //Only resets api key and download bool if api key has changed
         if apiTextField.text != oldKey {
-            print("Key changed")
             UserDefaults.standard.set(apiTextField.text, forKey: UserDefaultKeys.apiKey)
             UserDefaults.standard.set(false, forKey: UserDefaultKeys.customersDownloaded)
             UserDefaults.standard.set(true, forKey: UserDefaultKeys.hasKey)

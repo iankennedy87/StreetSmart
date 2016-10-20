@@ -96,13 +96,11 @@ class OrgOverviewController: UIViewController {
             
             var coordinate : CLLocationCoordinate2D? = nil
             guard (error == nil) else {
-                print("Geocoding failed for address: \(organisation.address) organisation: \(organisation.name)")
                 completionHandler(false)
                 return
             }
             
             guard let placemark = placemarks![0] as CLPlacemark? else {
-                print("No placemarks found")
                 completionHandler(false)
                 return
             }
@@ -110,7 +108,6 @@ class OrgOverviewController: UIViewController {
             
             let latitude = coordinate!.latitude
             let longitude = coordinate!.longitude
-            print("Geocoding succeeded for organisation: \(organisation.name) latitude: \(latitude) longitude: \(longitude)")
             organisation.latitude = latitude
             organisation.longitude = longitude
             DispatchQueue.main.async(execute: {

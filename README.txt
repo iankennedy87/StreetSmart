@@ -8,12 +8,20 @@ The inspiration for this app was my brother's distribution business, which uses 
 Note
 -----
 
-To save the reviewer the trouble of populating an Insightly account with customers, I've created a dummy account with a few customers, including one with a bogus address to demonstrate app behavior. The login information for this account is:
+The only authentication that Insightly’s API uses is an API Key in endpoint calls. Therefore, the app includes Google SignIn to authenticate users, in addition to requiring the user to add their personal API Key to view their data. It does not include a developer API Key in the code. This design is not an oversight — it’s the only way to allow different users to access their data! The Insightly API Key is not a developer key. It’s more like a method of authentication.
+
+To save the reviewer the trouble of populating an Insightly account with customers, I've created a dummy account with a few customers, including one with a bogus address to demonstrate app behavior. Please note that this is not a Google Account! You will need to sign in to Google with your own Google credentials. This Insightly account is only for logging into the website outside of the app to view and modify data for testing purposes. The account is purely for app development purposes, so feel free to manipulate the data to experiment with the app. The app only accesses “Organisations” from Insightly, so if you want to change something, please add an Organization or modify an existing one. 
+
+The login information for the Insightly.com (not Google!) account is:
 
 email: iankennedy87@gmail.com
 password: Y3zn5QTNpaV15aR 
 
-This account is purely for app development purposes, so feel free to manipulate the data to experiment with the app.
+If you don’t want to modify Insightly data or visit the website, the API Key for this dummy account is: 
+
+917b59bc-efc4-49bc-a626-dc57f65ee7d6:
+
+
 
 ------------------------------
 Building and Compiling the App
@@ -27,7 +35,9 @@ When enabling, I was asked to enter my Apple credentials. I do not know if this 
 -------------------
 1. Getting Started
 -------------------
-Street Smart requires Google SignIn. Click the SignIn button on the main page, and you will be directed to the Google Sign In page.
+Street Smart requires Google SignIn. Click the SignIn button on the main page, and you will be directed to the Google Sign In page. Please login with your Google credentials, not your Insightly credentials. 
+
+(NOTE TO REVIEWER: Don’t use the dummy Insightly credentials provided above here! Use your own Google login information.)
 
 ------------------
 2. Main Page
@@ -41,7 +51,7 @@ The "Sign Out" button on the right of the navigation bar will sign you out of Go
 -----------------------
 3. Setting Your API Key
 -----------------------
-The API Key screen allows you to enter or change your Insightly API Key. There is a brief explanation of where to find the API Key on Insightly.com as well as a link to a more detailed explanation on Insightly's website.
+The API Key screen allows you to enter or change your Insightly API Key. There is a brief explanation of where to find the API Key on Insightly.com as well as a link to a more detailed explanation on Insightly's website. 
 
 If you enter an API Key for the first time or change your API Key, Street Smart will download new customer data next time you select "View Customers" from the main page.
 
