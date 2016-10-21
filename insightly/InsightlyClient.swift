@@ -157,13 +157,6 @@ class InsightlyClient : NSObject {
         }
     }
     
-//    class func sharedInstance() -> InsightlyClient {
-//        struct Singleton {
-//            static var sharedInstance = InsightlyClient()
-//        }
-//        return Singleton.sharedInstance
-//    }
-    
     //Returns a two element tuple: first, and address string for geocoding and an address with elements separated by line for display
     func convertInsightlyAddressToString(_ insightlyAddress: [String: AnyObject]) -> (addressString: String, addressByLine: String) {
         
