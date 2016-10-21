@@ -110,7 +110,8 @@ class InsightlyClient : NSObject {
                 let addressDict = addresses[0]
                 
                 let address = InsightlyClient.sharedInstance.convertInsightlyAddressToString(addressDict)
-                let _ = Organisation(name: name, address: address.addressString, addressByLine: address.addressByLine, imageUrl: url, context: self.context)
+                let org = Organisation(name: name, address: address.addressString, addressByLine: address.addressByLine, imageUrl: url, context: self.context)
+                org.user = self.del.user!
             }
             
             DispatchQueue.main.async {

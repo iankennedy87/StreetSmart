@@ -10,6 +10,9 @@
 		0040926B1DAF328200001CA0 /* InsightlyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0040926A1DAF328200001CA0 /* InsightlyConstants.swift */; };
 		0040926D1DAF374B00001CA0 /* OrgTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0040926C1DAF374B00001CA0 /* OrgTableViewController.swift */; };
 		004092711DAF382900001CA0 /* InsightlyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004092701DAF382900001CA0 /* InsightlyClient.swift */; };
+		0058BA191DBA2A9B00619EE6 /* Organisation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0058BA181DBA2A9B00619EE6 /* Organisation+CoreDataProperties.swift */; };
+		0058BA201DBA2B0E00619EE6 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0058BA1E1DBA2B0E00619EE6 /* User+CoreDataClass.swift */; };
+		0058BA211DBA2B0E00619EE6 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0058BA1F1DBA2B0E00619EE6 /* User+CoreDataProperties.swift */; };
 		0073E3FA1DAE6398009E48CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073E3F91DAE6398009E48CE /* AppDelegate.swift */; };
 		0073E3FC1DAE6398009E48CE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073E3FB1DAE6398009E48CE /* SignInViewController.swift */; };
 		0073E3FF1DAE6398009E48CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0073E3FD1DAE6398009E48CE /* Main.storyboard */; };
@@ -18,7 +21,6 @@
 		0073E4071DAE6398009E48CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0073E4051DAE6398009E48CE /* LaunchScreen.storyboard */; };
 		0073E42C1DAE63E3009E48CE /* Organisation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073E42A1DAE63E3009E48CE /* Organisation+CoreDataClass.swift */; };
 		00AA82111DB775A0002CCEA0 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AA82101DB775A0002CCEA0 /* UserDefaultKeys.swift */; };
-		00ADD5AF1DB7253D004DE0F5 /* Organisation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ADD5AE1DB7253D004DE0F5 /* Organisation+CoreDataProperties.swift */; };
 		00CAF4061DB5CC0A0071B379 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAF4051DB5CC0A0071B379 /* AppColors.swift */; };
 		00E1A09C1DAF78530068C4E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00E1A09B1DAF78530068C4E1 /* GoogleService-Info.plist */; };
 		00E1A0A11DAF83C80068C4E1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E1A0A01DAF83C80068C4E1 /* StoreKit.framework */; };
@@ -54,6 +56,9 @@
 		0040926A1DAF328200001CA0 /* InsightlyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightlyConstants.swift; sourceTree = "<group>"; };
 		0040926C1DAF374B00001CA0 /* OrgTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrgTableViewController.swift; path = ../OrgTableViewController.swift; sourceTree = "<group>"; };
 		004092701DAF382900001CA0 /* InsightlyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightlyClient.swift; sourceTree = "<group>"; };
+		0058BA181DBA2A9B00619EE6 /* Organisation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organisation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0058BA1E1DBA2B0E00619EE6 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0058BA1F1DBA2B0E00619EE6 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0073E3F61DAE6398009E48CE /* insightly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = insightly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0073E3F91DAE6398009E48CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0073E3FB1DAE6398009E48CE /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +71,6 @@
 		0073E4181DAE6398009E48CE /* insightlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = insightlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0073E42A1DAE63E3009E48CE /* Organisation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Organisation+CoreDataClass.swift"; path = "../Organisation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		00AA82101DB775A0002CCEA0 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
-		00ADD5AE1DB7253D004DE0F5 /* Organisation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organisation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		00CAF4051DB5CC0A0071B379 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		00E1A09B1DAF78530068C4E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00E1A09D1DAF78D50068C4E1 /* insightly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "insightly-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -136,8 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				0073E4001DAE6398009E48CE /* insightly.xcdatamodeld */,
+				0058BA1E1DBA2B0E00619EE6 /* User+CoreDataClass.swift */,
+				0058BA1F1DBA2B0E00619EE6 /* User+CoreDataProperties.swift */,
+				0058BA181DBA2A9B00619EE6 /* Organisation+CoreDataProperties.swift */,
 				0073E42A1DAE63E3009E48CE /* Organisation+CoreDataClass.swift */,
-				00ADD5AE1DB7253D004DE0F5 /* Organisation+CoreDataProperties.swift */,
 				00CAF4051DB5CC0A0071B379 /* AppColors.swift */,
 				00AA82101DB775A0002CCEA0 /* UserDefaultKeys.swift */,
 				00E1A0A91DAF94DF0068C4E1 /* Notification.swift */,
@@ -493,8 +499,9 @@
 			files = (
 				00F3C9491DB3B8F5000FE35F /* OrgOverviewController.swift in Sources */,
 				0073E4021DAE6398009E48CE /* insightly.xcdatamodeld in Sources */,
-				00ADD5AF1DB7253D004DE0F5 /* Organisation+CoreDataProperties.swift in Sources */,
+				0058BA211DBA2B0E00619EE6 /* User+CoreDataProperties.swift in Sources */,
 				0073E3FC1DAE6398009E48CE /* SignInViewController.swift in Sources */,
+				0058BA191DBA2A9B00619EE6 /* Organisation+CoreDataProperties.swift in Sources */,
 				00AA82111DB775A0002CCEA0 /* UserDefaultKeys.swift in Sources */,
 				004092711DAF382900001CA0 /* InsightlyClient.swift in Sources */,
 				0073E42C1DAE63E3009E48CE /* Organisation+CoreDataClass.swift in Sources */,
@@ -505,6 +512,7 @@
 				00E1A0AC1DAFBE1D0068C4E1 /* KeyViewController.swift in Sources */,
 				0040926B1DAF328200001CA0 /* InsightlyConstants.swift in Sources */,
 				00E1A0A81DAF8DA00068C4E1 /* MainScreenViewController.swift in Sources */,
+				0058BA201DBA2B0E00619EE6 /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

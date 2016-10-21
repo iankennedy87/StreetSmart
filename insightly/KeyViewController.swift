@@ -19,6 +19,7 @@ class KeyViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var infoLink: UIButton!
     
     var oldKey: String?
+    let del = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()

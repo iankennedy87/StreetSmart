@@ -23,7 +23,48 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.hidesWhenStopped = true
+        if (del.user == nil) {
+            do {
+                try userFetchedResultsController.performFetch()
+            } catch {}
+            
+            print("count \(userFetchedResultsController.fetchedObjects!.count)")
+            
+            guard (userFetchedResultsController.fetchedObjects!.count > 0) else {
+                let currentUser = GIDSignIn.sharedInstance().currentUser!
+                del.user = User(userId: currentUser.userID, email: currentUser.profile.email, context: context)
+                del.saveContext()
+                print("User created")
+                return
+            }
+            
+            if let user = userFetchedResultsController.fetchedObjects![0] as? User {
+                del.user = user
+                print("del.user added")
+            }
+            
+        }
     }
+    
+    lazy var userFetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
+        
+        let fetchRequest : NSFetchRequest<NSFetchRequestResult> = User.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "userId", ascending: true)]
+        
+        let currentUser = GIDSignIn.sharedInstance().currentUser.userID!
+        
+        print("Current user id \(currentUser)")
+        
+        fetchRequest.predicate = NSPredicate(format: "userId = %@", argumentArray: [currentUser])
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                  managedObjectContext: self.context,
+                                                                  sectionNameKeyPath: nil,
+                                                                  cacheName: nil)
+        return fetchedResultsController
+        
+    }()
     
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
         
