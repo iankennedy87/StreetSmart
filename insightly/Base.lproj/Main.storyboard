@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vz2-q9-xMj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -54,9 +54,10 @@
                                     <constraint firstAttribute="width" constant="240" id="UVj-7i-jKQ"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="signInClicked:" destination="BYZ-38-t0r" eventType="valueChanged" id="3ou-04-2dz"/>
+                                    <action selector="signInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7pl-I3-p3r"/>
                                 </connections>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="UE3-ib-qqu"/>
                         </subviews>
                         <color key="backgroundColor" red="0.032470542937517166" green="0.088661469519138336" blue="0.22532150149345398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -64,10 +65,12 @@
                             <constraint firstItem="pQU-hs-6NP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bgn-0f-Rrc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pQU-hs-6NP" secondAttribute="bottom" constant="83" id="Fmx-GJ-nWt"/>
                             <constraint firstItem="DDX-vu-q8C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-40" id="Ju3-ns-110"/>
+                            <constraint firstItem="pQU-hs-6NP" firstAttribute="top" secondItem="UE3-ib-qqu" secondAttribute="bottom" constant="22" id="JwE-CN-EIZ"/>
                             <constraint firstItem="DDX-vu-q8C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KQY-Gx-Pug"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ySA-O6-IxF" secondAttribute="trailing" constant="33" id="NEN-pa-yeH"/>
                             <constraint firstItem="pQU-hs-6NP" firstAttribute="top" secondItem="DDX-vu-q8C" secondAttribute="bottom" id="c4P-5c-r5Z"/>
                             <constraint firstItem="DDX-vu-q8C" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fLO-Q7-FdQ"/>
+                            <constraint firstItem="UE3-ib-qqu" firstAttribute="centerX" secondItem="DDX-vu-q8C" secondAttribute="centerX" id="o8K-CH-V4A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DDX-vu-q8C" secondAttribute="trailing" constant="-40" id="rWV-pr-vfl"/>
                             <constraint firstItem="ySA-O6-IxF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="yj7-eH-XYS"/>
                         </constraints>
@@ -76,6 +79,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="efD-Ec-nfT"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="UE3-ib-qqu" id="RXU-Ez-6Wj"/>
                         <outlet property="signInButton" destination="pQU-hs-6NP" id="ueZ-Hn-jD0"/>
                         <outlet property="streetImage" destination="DDX-vu-q8C" id="uQJ-Xw-I5i"/>
                         <segue destination="Vz2-q9-xMj" kind="presentation" id="PXc-Mk-ZiH"/>

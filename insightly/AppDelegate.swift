@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
-        
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().clientID = "317567305723-qh5ncqk5bltnjv3olh55348bjc5rmfo6.apps.googleusercontent.com"
         return true
@@ -65,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
-            UserDefaults.standard.set(true, forKey: UserDefaultKeys.signedIn)
+//            UserDefaults.standard.set(true, forKey: UserDefaultKeys.signedIn)
             // Perform any operations on signed in user here.
             // Notify VC that sign in succeeded
             DispatchQueue.main.async {
