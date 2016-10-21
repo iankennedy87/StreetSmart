@@ -65,9 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
+            UserDefaults.standard.set(true, forKey: UserDefaultKeys.signedIn)
             // Perform any operations on signed in user here.
             // Notify VC that sign in succeeded
-            NotificationCenter.default.post(name: .signInSuccess, object: nil)      
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .signInSuccess, object: nil)      
+            }
+            
             let userId = user.userID                  // For client-side use only!
             let idToken = user.authentication.idToken // Safe to send to the server
             let fullName = user.profile.name
@@ -75,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let familyName = user.profile.familyName
             let email = user.profile.email
         } else {
-            print("\(error.localizedDescription)")
+            NotificationCenter.default.post(name: .signInFailure, object: nil)
         }
        
     }

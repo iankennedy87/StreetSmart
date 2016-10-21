@@ -11,4 +11,5 @@ import Foundation
 extension Notification.Name {
     static let signInSuccess = Notification.Name("signInSuccess")
     static let keyAdded = Notification.Name("keyAdded")
+    static let signInFailure = Notification.Name("signInFailure")
 }

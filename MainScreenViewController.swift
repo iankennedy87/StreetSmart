@@ -22,6 +22,10 @@ class MainScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.signedIn) {
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+            self.present(controller, animated: true, completion: nil)
+        }
         activityIndicator.hidesWhenStopped = true
     }
     
@@ -41,8 +45,10 @@ class MainScreenViewController: UIViewController {
    
     //Sign out of Google and return to main screen
     @IBAction func googleSignOout(_ sender: AnyObject) {
+        UserDefaults.standard.set(false, forKey: UserDefaultKeys.signedIn)
         GIDSignIn.sharedInstance().signOut()
-        self.dismiss(animated: true, completion: nil)
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        self.present(controller, animated: true, completion: nil)
     }
 
     //Present view controller to set API Key

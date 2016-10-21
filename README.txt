@@ -69,4 +69,6 @@ Tapping a customer cell will take you to the Street View page.
 ---------------
 The Street View page displays the customer's address and a Google Street View. If Google does not have a Street View or if the address can't be converted into usable coordinates, a placeholder image will display instead. Be patient on this page. It can take a few seconds for the Google Street View to load. 
 
+If the street view fails to load due to a bad network connection, you can press the refresh button on the right of the navigation bar to reload the street view once the network connection is reestablished.
+
 

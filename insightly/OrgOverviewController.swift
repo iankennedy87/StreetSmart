@@ -12,7 +12,7 @@ import UIKit
 import GoogleMaps
 import MapKit
 
-class OrgOverviewController: UIViewController {
+class OrgOverviewController: UIViewController, GMSPanoramaViewDelegate {
     
     @IBOutlet weak var streetView: UIView!
     @IBOutlet weak var placeholderImage: UIImageView!
@@ -26,6 +26,7 @@ class OrgOverviewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .refresh, target: self, action: #selector(renderStreetView))
         spinner.hidesWhenStopped = true
         streetView.setNeedsLayout()
         streetView.layoutIfNeeded()
@@ -52,7 +53,7 @@ class OrgOverviewController: UIViewController {
                 self.del.saveContext()
                 DispatchQueue.main.async {
                     self.spinner.stopAnimating()
-                    self.renderStreetView(geocodeSuccess: self.org.geocodeSuccess)
+                    self.renderStreetView()
                 }
             })
         }
@@ -62,17 +63,18 @@ class OrgOverviewController: UIViewController {
         super.viewDidLayoutSubviews()
         //renders street view if geocode has already occurred
         if !firstView {
-            renderStreetView(geocodeSuccess: org.geocodeSuccess)
+            renderStreetView()
         }
     }
     
     //renders street view or placeholder depending on geocode result
-    func renderStreetView(geocodeSuccess: Bool) -> Void {
-        if geocodeSuccess {
+    func renderStreetView() -> Void {
+        if org.geocodeSuccess {
             
             let coordinate = CLLocationCoordinate2DMake(self.org.latitude, self.org.longitude)
             let streetViewFrame = self.streetView.frame
             let panoview = GMSPanoramaView(frame: streetViewFrame)
+            panoview.delegate = self
             panoview.contentMode = .scaleAspectFit
             self.view.addSubview(panoview)
             self.view.bringSubview(toFront: panoview)
@@ -116,4 +118,17 @@ class OrgOverviewController: UIViewController {
             completionHandler(true)
         }
     }
+    
+    func panoramaView(_ view: GMSPanoramaView, error: Error, onMoveNearCoordinate coordinate: CLLocationCoordinate2D) {
+        let alert = UIAlertController(title: "Failed to load street view", message: "Could not load a Google StreetView for \(self.org.name!)'s address. Check your network connection and try again", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        //prevents panorama view from rendering again after subviews are laid out again
+        firstView = true
+        //remove panorama view from layout and present alert 
+        DispatchQueue.main.async {
+            view.removeFromSuperview()
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }

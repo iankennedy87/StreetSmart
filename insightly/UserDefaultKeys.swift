@@ -12,4 +12,5 @@ struct UserDefaultKeys {
     static let apiKey: String = "APIKey"
     static let hasKey: String = "hasAPIKey"
     static let customersDownloaded: String = "customersDownloaded"
+    static let signedIn: String = "signedIn"
 }
