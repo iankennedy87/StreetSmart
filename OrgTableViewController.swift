@@ -58,6 +58,10 @@ class OrgTableViewController : UITableViewController, NSFetchedResultsController
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
+        let user = self.del.user!
+        
+        fetchRequest.predicate = NSPredicate(format: "user = %@", argumentArray: [user])
+        
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: self.context,
                                                                   sectionNameKeyPath: nil,

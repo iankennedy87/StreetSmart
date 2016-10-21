@@ -23,6 +23,7 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.hidesWhenStopped = true
+        
         if (del.user == nil) {
             do {
                 try userFetchedResultsController.performFetch()
@@ -44,6 +45,8 @@ class MainScreenViewController: UIViewController {
             }
             
         }
+        
+        navigationItem.title = del.user!.email
     }
     
     lazy var userFetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
@@ -72,6 +75,10 @@ class MainScreenViewController: UIViewController {
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
+        let user = self.del.user!
+        
+        fetchRequest.predicate = NSPredicate(format: "user = %@", argumentArray: [user])
+        
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: self.context,
                                                                   sectionNameKeyPath: nil,
@@ -83,6 +90,7 @@ class MainScreenViewController: UIViewController {
     //Sign out of Google and return to main screen
     @IBAction func googleSignOout(_ sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
+        del.user = nil
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -95,7 +103,8 @@ class MainScreenViewController: UIViewController {
     //If data hasn't been downloaded for current API Key, downloads and presents organisation table view. 
     @IBAction func getInsightlyData(_ sender: AnyObject) {
         //Presents an alert if an API key hasn't been entered
-        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.hasKey) {
+//        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.hasKey) {
+        if !del.user!.hasKey {
             let alert = UIAlertController(title: "No API Key", message: "You must add an Insightly API Key before viewing customers", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Add an API Key", style: .default, handler: { (action) in
@@ -106,11 +115,13 @@ class MainScreenViewController: UIViewController {
             
             self.present(alert, animated: true, completion: nil)
             //If data hasn't been downloaded with current API key, does so now
-        } else if !UserDefaults.standard.bool(forKey: UserDefaultKeys.customersDownloaded) {
-            
+//        } else if !UserDefaults.standard.bool(forKey: UserDefaultKeys.customersDownloaded) {
+        } else if !del.user!.customersDownloaded {
+        
             InsightlyClient.sharedInstance.downloadInsightlyCustomers(viewController: self, fetchedResultsController: fetchedResultsController, uiUpdates: toggleButtons, completionHandler: {
                 
-                UserDefaults.standard.set(true, forKey: UserDefaultKeys.customersDownloaded)
+//                UserDefaults.standard.set(true, forKey: UserDefaultKeys.customersDownloaded)
+                self.del.user!.customersDownloaded = true
                 self.del.saveContext()
                 DispatchQueue.main.async {
                     let orgTableView = self.storyboard!.instantiateViewController(withIdentifier: "OrgTableViewController") as! OrgTableViewController

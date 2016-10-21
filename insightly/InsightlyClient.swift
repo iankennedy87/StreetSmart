@@ -22,7 +22,8 @@ class InsightlyClient : NSObject {
     //Accesses insightly API and returns JSON
     func insightlyGetJSONRequest(endpoint ep: String, params: [String: AnyObject], completionHandler: @escaping getJSONCompletionHandler) -> Void {
         
-        let apiKey = UserDefaults.standard.value(forKey: UserDefaultKeys.apiKey) as! String
+//        let apiKey = UserDefaults.standard.value(forKey: UserDefaultKeys.apiKey) as! String
+        let apiKey = del.user!.apiKey!
         let apiKey64Encoded = apiKey.data(using: String.Encoding.utf8)!.base64EncodedString()
         
         let url = insightlyURLFromParameters(ep, parameters: params)
