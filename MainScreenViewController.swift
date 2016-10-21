@@ -29,19 +29,16 @@ class MainScreenViewController: UIViewController {
                 try userFetchedResultsController.performFetch()
             } catch {}
             
-            print("count \(userFetchedResultsController.fetchedObjects!.count)")
             
             guard (userFetchedResultsController.fetchedObjects!.count > 0) else {
                 let currentUser = GIDSignIn.sharedInstance().currentUser!
                 del.user = User(userId: currentUser.userID, email: currentUser.profile.email, context: context)
                 del.saveContext()
-                print("User created")
                 return
             }
             
             if let user = userFetchedResultsController.fetchedObjects![0] as? User {
                 del.user = user
-                print("del.user added")
             }
             
         }
@@ -56,8 +53,6 @@ class MainScreenViewController: UIViewController {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "userId", ascending: true)]
         
         let currentUser = GIDSignIn.sharedInstance().currentUser.userID!
-        
-        print("Current user id \(currentUser)")
         
         fetchRequest.predicate = NSPredicate(format: "userId = %@", argumentArray: [currentUser])
         

@@ -31,7 +31,6 @@ class KeyViewController : UIViewController, UITextFieldDelegate {
         
         //If API Key already stored, display in text field
         if let apiKey = del.user!.apiKey {
-//        if let apiKey = UserDefaults.standard.value(forKey: UserDefaultKeys.apiKey) as? String {
             apiTextField.text = apiKey
         }
     }
@@ -48,20 +47,15 @@ class KeyViewController : UIViewController, UITextFieldDelegate {
     
     
     @IBAction func submitClicked(_ sender: AnyObject) {
-//        oldKey = UserDefaults.standard.value(forKey: UserDefaultKeys.apiKey) as! String?
         oldKey = del.user!.apiKey 
         //Only resets api key and download bool if api key has changed
         if apiTextField.text != oldKey {
-//            UserDefaults.standard.set(apiTextField.text, forKey: UserDefaultKeys.apiKey)
             del.user!.apiKey = apiTextField.text
-//            UserDefaults.standard.set(false, forKey: UserDefaultKeys.customersDownloaded)
             del.user!.customersDownloaded = false
-//            UserDefaults.standard.set(true, forKey: UserDefaultKeys.hasKey)
             del.user!.hasKey = true
             del.saveContext()
         }
         
-        NotificationCenter.default.post(name: .keyAdded, object: nil)
         _ = self.navigationController?.popViewController(animated: true)
     }
    

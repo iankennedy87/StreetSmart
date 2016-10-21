@@ -26,12 +26,14 @@ class OrgOverviewController: UIViewController, GMSPanoramaViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .refresh, target: self, action: #selector(renderStreetView))
         spinner.hidesWhenStopped = true
         streetView.setNeedsLayout()
         streetView.layoutIfNeeded()
         self.navigationItem.title = org.name!
         addressLabel.text = org.addressByLine
+        
         //If organisation hasn't been viewed yet, attempt to geocode coordinates
         if firstView {
             spinner.startAnimating()
@@ -70,7 +72,6 @@ class OrgOverviewController: UIViewController, GMSPanoramaViewDelegate {
     //renders street view or placeholder depending on geocode result
     func renderStreetView() -> Void {
         if org.geocodeSuccess {
-            
             let coordinate = CLLocationCoordinate2DMake(self.org.latitude, self.org.longitude)
             let streetViewFrame = self.streetView.frame
             let panoview = GMSPanoramaView(frame: streetViewFrame)
@@ -80,7 +81,6 @@ class OrgOverviewController: UIViewController, GMSPanoramaViewDelegate {
             self.view.bringSubview(toFront: panoview)
             panoview.moveNearCoordinate(coordinate)
         } else {
-    
             let placeholder = UIImage(named: "placeholder")!
             let placeholderView = UIImageView(image: placeholder)
             placeholderView.frame = self.streetView.frame
@@ -106,15 +106,14 @@ class OrgOverviewController: UIViewController, GMSPanoramaViewDelegate {
                 completionHandler(false)
                 return
             }
-            coordinate = placemark.location!.coordinate
             
+            coordinate = placemark.location!.coordinate
             let latitude = coordinate!.latitude
             let longitude = coordinate!.longitude
             organisation.latitude = latitude
             organisation.longitude = longitude
-            DispatchQueue.main.async(execute: {
-                self.del.saveContext()
-            })
+            self.del.saveContext()
+            
             completionHandler(true)
         }
     }

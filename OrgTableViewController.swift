@@ -93,7 +93,6 @@ class OrgTableViewController : UITableViewController, NSFetchedResultsController
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let CellIdentifier = "OrgCell"
         
-        // Here is how to replace the actors array using objectAtIndexPath
         let org = fetchedResultsController.object(at: indexPath) as! Organisation
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier)!

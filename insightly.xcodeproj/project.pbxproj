@@ -20,7 +20,6 @@
 		0073E4041DAE6398009E48CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0073E4031DAE6398009E48CE /* Assets.xcassets */; };
 		0073E4071DAE6398009E48CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0073E4051DAE6398009E48CE /* LaunchScreen.storyboard */; };
 		0073E42C1DAE63E3009E48CE /* Organisation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073E42A1DAE63E3009E48CE /* Organisation+CoreDataClass.swift */; };
-		00AA82111DB775A0002CCEA0 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AA82101DB775A0002CCEA0 /* UserDefaultKeys.swift */; };
 		00CAF4061DB5CC0A0071B379 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CAF4051DB5CC0A0071B379 /* AppColors.swift */; };
 		00E1A09C1DAF78530068C4E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00E1A09B1DAF78530068C4E1 /* GoogleService-Info.plist */; };
 		00E1A0A11DAF83C80068C4E1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E1A0A01DAF83C80068C4E1 /* StoreKit.framework */; };
@@ -70,7 +69,6 @@
 		0073E40D1DAE6398009E48CE /* insightlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = insightlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0073E4181DAE6398009E48CE /* insightlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = insightlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0073E42A1DAE63E3009E48CE /* Organisation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Organisation+CoreDataClass.swift"; path = "../Organisation+CoreDataClass.swift"; sourceTree = "<group>"; };
-		00AA82101DB775A0002CCEA0 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		00CAF4051DB5CC0A0071B379 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		00E1A09B1DAF78530068C4E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00E1A09D1DAF78D50068C4E1 /* insightly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "insightly-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				0058BA181DBA2A9B00619EE6 /* Organisation+CoreDataProperties.swift */,
 				0073E42A1DAE63E3009E48CE /* Organisation+CoreDataClass.swift */,
 				00CAF4051DB5CC0A0071B379 /* AppColors.swift */,
-				00AA82101DB775A0002CCEA0 /* UserDefaultKeys.swift */,
 				00E1A0A91DAF94DF0068C4E1 /* Notification.swift */,
 			);
 			name = Model;
@@ -502,7 +499,6 @@
 				0058BA211DBA2B0E00619EE6 /* User+CoreDataProperties.swift in Sources */,
 				0073E3FC1DAE6398009E48CE /* SignInViewController.swift in Sources */,
 				0058BA191DBA2A9B00619EE6 /* Organisation+CoreDataProperties.swift in Sources */,
-				00AA82111DB775A0002CCEA0 /* UserDefaultKeys.swift in Sources */,
 				004092711DAF382900001CA0 /* InsightlyClient.swift in Sources */,
 				0073E42C1DAE63E3009E48CE /* Organisation+CoreDataClass.swift in Sources */,
 				0040926D1DAF374B00001CA0 /* OrgTableViewController.swift in Sources */,
